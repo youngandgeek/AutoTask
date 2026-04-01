@@ -39,5 +39,6 @@ public class SignUpPage extends BasePage {
       click(signupButton);
        return new RegisterPage(driver);
     }
+
 }
 

@@ -1,9 +1,11 @@
 package com.automation.base;
 
 import com.automation.utils.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -38,5 +40,15 @@ public class BasePage {
     // Waits for element to be visible and returns the element
     protected WebElement getElement(org.openqa.selenium.By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    protected void selectByValue(By locator, String value) {
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        new Select(dropdown).selectByValue(value);
+    }
+
+    protected void selectByVisibleText(By locator, String text) {
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        new Select(dropdown).selectByVisibleText(text);
     }
 }

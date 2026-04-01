@@ -16,9 +16,10 @@ protected WebDriver driver;
         driver = DriverManager.getDriver();
         driver.get("https://automationexercise.com/");
     }
-
+/**
    @AfterMethod
     public void tearDown() {
         DriverManager.quitDriver();
     }
+   **/
 }

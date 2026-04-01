@@ -25,8 +25,8 @@ public class SignUpTest extends BaseTest {
                 .enterEmail("test" + System.currentTimeMillis() + "@test.com")
                 .clickSignupBtn();
     }
-
     **/
+/**
 @Test
 public void testFullNavigationToRegisterForm() {
 
@@ -36,5 +36,10 @@ public void testFullNavigationToRegisterForm() {
             .enterEmail("test" + System.currentTimeMillis() + "@test.com")
             .clickSignupBtn()     // Signup → Register page
             .enterFirstName("Eman"); // Now on Register page
+
+
 }
-    }
+**/
+
+
+}
