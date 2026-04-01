@@ -15,30 +15,19 @@
             <version>7.11.0</version>
         </dependency>
 
-<<<<<<< HEAD
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>6.3.3</version>
             <scope>test</scope>
         </dependency>
-=======
->>>>>>> 3057481d22b3d5d253a9bd60065e051c58be6e56
         <!--  https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java  -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.35.0</version>
         </dependency>
-<<<<<<< HEAD
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>6.3.3</version>
-            <scope>compile</scope>
-        </dependency>
-=======
->>>>>>> 3057481d22b3d5d253a9bd60065e051c58be6e56
+
     </dependencies>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

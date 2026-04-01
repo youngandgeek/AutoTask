@@ -37,10 +37,18 @@ private final By UserMobileNumberInput = By.cssSelector("input[data-qa='mobile_n
 private final By CreateAccountBtn = By.cssSelector("button[data-qa='create-account']");
 private final By accountCreatedMsg = By.cssSelector("h2[data-qa='account-created']");
 
+    public RegisterPage selectTitle() {
+        click(UserTitleRadioBtn);
+        return this;
+    }
 
+public RegisterPage enterName(String name) {
+        type(UserNameInput, name);
+        return this;
+    }
 
-    public RegisterPage enterFirstName(String fName) {
-        type(UserFirstNameInput, fName);
+    public RegisterPage enterEmail(String email) {
+        type(UserEmailInput, email);
         return this;
     }
 
@@ -48,8 +56,82 @@ private final By accountCreatedMsg = By.cssSelector("h2[data-qa='account-created
         type(UserPasswordInput, password);
         return this;
     }
-    public RegisterPage selectTitle() {
-        click(UserTitleRadioBtn);
+
+    public RegisterPage selectDayOfBirth(String day) {
+        type(UserDayOfBirthInput, day);
         return this;
+    }
+    public RegisterPage selectMonthOfBirth(String month) {
+        type(UserMonthOfBirthInput, month);
+        return this;}
+    public RegisterPage selectYearOfBirth(String year) {
+        type(UserYearOfBirthInput, year);
+        return this;
+    }
+
+    public RegisterPage selectNewsletter() {
+        click(UserNewsletterCheckbox);
+        return this;
+    }
+    public RegisterPage selectSpecialOffers() {
+        click(UserSpecialOffersCheckbox);
+        return this;    }
+
+
+    public RegisterPage enterFirstName(String fName) {
+        type(UserFirstNameInput, fName);
+        return this;
+    }
+
+
+
+    public RegisterPage enterLastName(String lName) {
+        type(UserLastNameInput, lName);
+        return this;
+    }
+    public RegisterPage enterCompany(String company) {
+        type(UserCompanyInput, company);
+        return this;
+    }
+    public RegisterPage enterAddress(String address) {
+        type(UserAddressInput, address);
+        return this;
+    }
+    public RegisterPage enterAddress2(String address2) {
+        type(UserAddress2Input, address2);
+        return this;        }
+    public RegisterPage selectCountry(String country) {
+        type(UserCountrySelect, country);
+        return this;
+    }
+    public RegisterPage enterState(String state) {
+        type(UserStateInput, state);
+        return this;
+    }
+    public RegisterPage enterCity(String city) {
+        type(UserCityInput, city);
+        return this;
+    }
+    public RegisterPage enterZipcode(String zipcode) {
+        type(UserZipcodeInput, zipcode);
+        return this;
+    }
+    public RegisterPage enterMobileNumber(String mobileNumber) {
+        type(UserMobileNumberInput, mobileNumber);
+        return this;
+    }
+
+
+
+
+    public RegisterPage clickCreateAccount() {
+        click(CreateAccountBtn);
+        return this;
+    }
+    public String getAccountCreatedMessage() {
+        return getText(accountCreatedMsg);
+    }
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
     }
 }
