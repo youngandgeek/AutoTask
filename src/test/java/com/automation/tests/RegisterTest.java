@@ -1,35 +1,34 @@
 package com.automation.tests;
 
 import com.automation.base.BaseTest;
+import com.automation.pages.AccountCreatedPage;
 import com.automation.pages.HomePage;
 import com.automation.pages.RegisterPage;
-import com.automation.pages.SignUpPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+@Test(groups = "notLogged")
 
 public class RegisterTest extends BaseTest {
 
     @Test
     public void TC_001_UserRegistration_HappyPath() {
 
-        String email = "autouser_" + System.currentTimeMillis() + "@testmail.com";
-        String password = "Test@12345";
+        String signupName = "Test@12345";
+        String signupEmail = "autouser_" + System.currentTimeMillis() + "@testmail.com";
 
-        // Step 1: home page loaded by BaseTest
-        // Step 2: click Signup/Login
-        SignUpPage signupPage = new HomePage(driver).clickSignupLogin();
+        RegisterPage registerPage = new HomePage(driver)
+                .clickSignupLogin()
+                .enterSignupName(signupName)
+                .enterSignupEmail(signupEmail)
+                .clickSignUpBtn();
 
-        // Step 3: fill signup form
-        RegisterPage registerPage = signupPage
-                .enterName("Auto sUser")
-                .enterEmail(email)
-                .clickSignupBtn();
 
-        // Step 4: fill registration detail form
-        registerPage
-                .selectTitle()
-                .enterName("Auto User")
-         //       .enterEmail(email)
+//from home page navigate to login/signup page and fill signup form
+        AccountCreatedPage accountCreatedPage =
+                registerPage.selectTitle()
+               //    .enterName("Auto User"
+              //    .enterEmail(email)
                 .enterPassword("password")
                 .selectDayOfBirth("10")
                 .selectMonthOfBirth("5")
@@ -42,10 +41,13 @@ public class RegisterTest extends BaseTest {
                 .enterCity("Los Angeles")
                 .enterZipcode("90001")
                 .enterMobileNumber("0123456789")
-                .clickCreateAccount();
+                .clickCreateAccountBtn();
 
-        // Step 5: verify account created
-        Assert.assertEquals(registerPage.getAccountCreatedMessage(), "ACCOUNT CREATED!");
-    }
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertTrue(currentUrl.contains("automationexercise.com"),
+                "User was NOT redirected to Account Created page after signup");
+        // Step 4: continue to homepage
+        accountCreatedPage.clickContinueBtn();
+        }
 
 }

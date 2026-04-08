@@ -1,4 +1,20 @@
 package com.automation.pages;
 
-public class CheckoutPage {
+import com.automation.base.BasePage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class CheckoutPage extends BasePage {
+    public CheckoutPage(WebDriver driver) {
+        super(driver);
+    }
+
+    //By placeOrderBtn = By.xpath("//a[contains(text(),'Place Order')]");
+    By placeOrderBtn = By.xpath("//a[@href='/payment']");
+
+
+    public PaymentPage clickPlaceOrder() {
+        driver.findElement(placeOrderBtn).click();
+        return new PaymentPage(driver);
+    }
 }

@@ -20,6 +20,10 @@ public class BasePage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+
+    public BasePage() {
+    }
+
     // Waits for element to be clickable before clicking
     protected void click(org.openqa.selenium.By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
