@@ -6,15 +6,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductsPage extends BasePage {
+
+
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
 
     private final By productsNavBtn = By.cssSelector("a[href='/products']");
 
-    By continueShoppingBtn = By.xpath("//button[contains(text(),'Continue Shopping')]");
+   private final By continueShoppingBtn = By.xpath("//button[contains(text(),'Continue Shopping')]");
     //driver.findElement(By.xpath("//u[normalize-space()='View Cart']"))
-    By viewCartBtn = By.xpath("//a[@href='/view_cart']");
+    private final     By viewCartBtn = By.xpath("//a[@href='/view_cart']");
 
     public ProductsPage navigateToProducts() {
         driver.findElement(productsNavBtn).click();
@@ -24,19 +26,40 @@ public class ProductsPage extends BasePage {
     //one product at a time
     public ProductsPage addProductToCart(int productId) {
         By addToCart = By.xpath("//a[@data-product-id='" + productId + "']");
-        driver.findElement(addToCart).click();
-        return this;
+        click(addToCart);
+       return this;
     }
-//accepts multiple product ids and adds them to cart
+/** without ci accepts multiple product ids and adds them to cart
 public ProductsPage addMultipleProducts(int... productIds) {
     for (int id : productIds) {
         By addToCart = By.xpath("//a[@data-product-id='" + id + "']");
         click(addToCart);
-        wait.until(ExpectedConditions
-                .visibilityOfElementLocated(continueShoppingBtn));
         continueShopping();
 
     }
+    return this;
+}
+**/
+// Add multiple products (CI SAFE VERSION)
+public ProductsPage addMultipleProducts(int... productIds) {
+
+    for (int id : productIds) {
+
+        By addToCart = By.xpath("//a[@data-product-id='" + id + "']");
+
+        // 1. Click product safely
+        wait.until(ExpectedConditions.elementToBeClickable(addToCart)).click();
+
+        // 2. Wait modal appears
+        wait.until(ExpectedConditions.visibilityOfElementLocated(continueShoppingBtn));
+
+        // 3. Click continue shopping safely
+        wait.until(ExpectedConditions.elementToBeClickable(continueShoppingBtn)).click();
+
+        // 4. Wait modal disappears before next iteration (VERY IMPORTANT)
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(continueShoppingBtn));
+    }
+
     return this;
 }
 
