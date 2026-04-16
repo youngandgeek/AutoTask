@@ -13,7 +13,6 @@ public class BaseTest {
 protected WebDriver driver;
 protected HomePage homePage;
 
-
     // @BeforeMethod — used by Login, Register tests
     @BeforeMethod(groups = "notLogged")
     public void setUp() {
