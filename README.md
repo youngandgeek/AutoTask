@@ -16,28 +16,37 @@ Product search
 Add to cart
 Checkout and payment flow
 🏗️ Framework Structure
-src
- ├── main
- │    ├── java
- │         ├── base
- │         │     ├── BasePage
- │         │     ├── BaseTest
- │         │     └── DriverManager
- │         │
- │         ├── pages
- │         │     ├── HomePage
- │         │     ├── LoginSignupPage
- │         │     ├── ProductsPage
- │         │     ├── CartPage
- │         │     ├── PaymentPage
- │         │     └── RegisterPage
- │
- ├── test
- │    ├── java
- │         ├── tests
- │              ├── LoginTest
- │              ├── RegisterTest
- │              ├── PurchaseTest
+
+ src
+
+
+
+
+
+├── main
+│ ├── java
+│ │ ├── base
+│ │ │ ├── BasePage
+│ │ │ ├── BaseTest
+│ │ │ └── DriverManager
+│ │ │
+│ │ ├── pages
+│ │ │ ├── HomePage
+│ │ │ ├── LoginSignupPage
+│ │ │ ├── ProductsPage
+│ │ │ ├── CartPage
+│ │ │ ├── PaymentPage
+│ │ │ └── RegisterPage
+│
+├── test
+│ ├── java
+│ │ ├── tests
+│ │ │ ├── LoginTest
+│ │ │ ├── RegisterTest
+│ │ │ └── PurchaseTest
+
+
+	
 ⚙️ Setup Instructions
 1. Prerequisites
 
