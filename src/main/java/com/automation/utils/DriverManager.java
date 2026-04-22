@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class DriverManager {
 //Create and manage WebDriver
     private static WebDriver driver;
-
+/*
     public static WebDriver getDriver() {
 
         if (driver == null) {
@@ -30,9 +30,9 @@ public class DriverManager {
     }
     //setup WebDriver (e.g., Chrome) and return it
 
-
-    /** works without ci
-  *  public static WebDriver getDriver() {
+**/
+    //works without ci
+   public static WebDriver getDriver() {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
 
@@ -44,7 +44,6 @@ public class DriverManager {
 
      return driver;
 }
-  **/
 
 
 

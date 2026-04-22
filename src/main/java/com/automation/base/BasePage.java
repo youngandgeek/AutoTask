@@ -2,6 +2,7 @@ package com.automation.base;
 
 import com.automation.utils.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,9 +27,16 @@ public class BasePage {
 
     // Waits for element to be clickable before clicking
     protected void click(org.openqa.selenium.By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
-    }
+        //remove ads if present before clicking to avoid click interception
+        removeAdsIfPresent();
 
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+        } catch (Exception e) {
+            WebElement el = driver.findElement(locator);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+        }
+    }
     // Waits for element to be visible then types into it
     protected void type(org.openqa.selenium.By locator, String text) {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -55,4 +63,10 @@ public class BasePage {
         WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(locator));
         new Select(dropdown).selectByVisibleText(text);
     }
+    protected  void removeAdsIfPresent() {
+            ((JavascriptExecutor) driver).executeScript(
+                    "document.querySelectorAll(\"iframe[id^='aswift']\").forEach(el => el.remove());"
+            );
+        }
+
 }
