@@ -1,11 +1,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestNG Suite">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
     <test name="SmokeTest">
         <classes>
          <class name="com.automation.tests.RegisterTest"/>
               <class name="com.automation.tests.LoginTests"/>
 
                <class name="com.automation.tests.PurchaseTests"></class>
+            <class name="com.automation.tests.InvalidLogin"></class>
         </classes>
     </test>
 

@@ -9,6 +9,7 @@ public class ProductsPage extends BasePage {
 
 
     public ProductsPage(WebDriver driver) {
+
         super(driver);
     }
 
@@ -18,8 +19,9 @@ public class ProductsPage extends BasePage {
     //driver.findElement(By.xpath("//u[normalize-space()='View Cart']"))
     private final     By viewCartBtn = By.xpath("//a[@href='/view_cart']");
 
+
     public ProductsPage navigateToProducts() {
-        driver.findElement(productsNavBtn).click();
+      click(productsNavBtn);
         return this;
     }
 
@@ -68,13 +70,13 @@ public ProductsPage addMultipleProducts(int... productIds) {
     }
     public ProductsPage continueShopping() {
         waitForModal();
-        driver.findElement(continueShoppingBtn).click();
+       click(continueShoppingBtn);
         return this;
     }
 
     public CartPage clickViewCart() {
-        driver.findElement(viewCartBtn).click();
-        return new CartPage(driver);
+      click(viewCartBtn);
+      return new CartPage(driver);
     }
 }
 

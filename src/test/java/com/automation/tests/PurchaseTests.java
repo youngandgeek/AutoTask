@@ -2,13 +2,16 @@ package com.automation.tests;
 
 import com.automation.base.BaseTest;
 import com.automation.pages.*;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 //@Test(groups = "Logged")
 
 public class PurchaseTests extends BaseTest {
-    @Test
-    public void TC_001_ProductPurchase_CompleteFlow() {
+    @Test(priority = 3, description = "Verify complete product purchase flow")
+    @Description("Happy Path: Add product to cart and complete checkout")
+
+    public void TC_003_ProductPurchase_CompleteFlow() {
     //    HomePage homePage = new HomePage(driver);
 //        homePage.verifyLoggedInAs("auto user");
 

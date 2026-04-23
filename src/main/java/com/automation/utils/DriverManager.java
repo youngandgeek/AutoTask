@@ -9,6 +9,20 @@ public class DriverManager {
 //Create and manage WebDriver
     private static WebDriver driver;
 
+    //works without ci
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            WebDriverManager.chromedriver().setup();
+
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+
+
+        }
+
+        return driver;
+    }
+/*
     public static WebDriver getDriver() {
 
         if (driver == null) {
@@ -30,22 +44,10 @@ public class DriverManager {
     }
     //setup WebDriver (e.g., Chrome) and return it
 
-
-   /** //works without ci
-   public static WebDriver getDriver() {
-        if (driver == null) {
-            WebDriverManager.chromedriver().setup();
-
-         driver = new ChromeDriver();
-            driver.manage().window().maximize();
-
-
-        }
-
-     return driver;
-}
-
 **/
+
+
+
 
 //close the browser after test execution
 

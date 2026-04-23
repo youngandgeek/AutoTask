@@ -30,12 +30,12 @@ public class CartPage extends BasePage {
     }
     public CartPage clickDeleteButton(int productId) {
         By deleteProductBtn = By.xpath("//a[@data-product-id='" + productId + "']");
-        driver.findElement(deleteProductBtn).click();
+       click(deleteProductBtn);
         return this;
     }
 
     public CheckoutPage clickProceedToCheckout() {
-        driver.findElement(proceedToCheckoutBtn).click();
+      click(proceedToCheckoutBtn);
         return new CheckoutPage(driver);
     }
 }

@@ -1,6 +1,7 @@
 package com.automation.pages;
 
 import com.automation.base.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -24,15 +25,23 @@ public class HomePage extends BasePage {
     }
 
 
-//verify user logged
-public HomePage verifyLoggedInAs(String expectedName) {
-    String actualName = driver.findElement(loggedInUsername).getText();
-    Assert.assertEquals(actualName, expectedName,
-            "Expected logged in as '" + expectedName
-                    + "' but found '" + actualName + "'");
-    return this;
-}
+    @Step("Verify user is logged in as: {expectedName}")
+    public HomePage verifyLoggedInAs(String expectedName) {
+        String actualName = getText(loggedInUsername);
 
+        Assert.assertEquals(actualName, expectedName,
+                "Expected logged in as '" + expectedName
+                        + "' but found '" + actualName + "'");
+
+        return this;
+    }
+    public boolean isUserLoggedIn() {
+        try {
+            return driver.findElement(logOutBtn).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
     public HomePage clickLogoutBtn() {
         click(logOutBtn);
         return this;

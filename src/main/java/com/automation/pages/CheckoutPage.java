@@ -14,7 +14,7 @@ public class CheckoutPage extends BasePage {
 
 
     public PaymentPage clickPlaceOrder() {
-        driver.findElement(placeOrderBtn).click();
-        return new PaymentPage(driver);
+      click(placeOrderBtn);
+      return new PaymentPage(driver);
     }
 }

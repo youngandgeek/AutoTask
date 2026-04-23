@@ -22,32 +22,32 @@ public class PaymentPage extends BasePage {
     By continueBtn = By.xpath("//a[contains(text(),'Continue')]");
 
     public PaymentPage enterNameOnCard(String name) {
-        driver.findElement(nameOnCard).sendKeys(name);
-        return this;
+      type(nameOnCard, name);
+                return this;
     }
 
     public PaymentPage enterCardNumber(String number) {
-        driver.findElement(cardNumber).sendKeys(number);
+      type(cardNumber, number);
         return this;
     }
 
     public PaymentPage enterCvv(String code) {
-        driver.findElement(cvv).sendKeys(code);
-        return this;
+ type(cvv,code);
+return this;
     }
 
     public PaymentPage enterExpiryMonth(String month) {
-        driver.findElement(expiryMonth).sendKeys(month);
-        return this;
+type(expiryMonth,month);
+return this;
     }
 
     public PaymentPage enterExpiryYear(String year) {
-        driver.findElement(expiryYear).sendKeys(year);
+      type(expiryYear, year);
         return this;
     }
 
     public PaymentPage clickPayAndConfirmOrder() {
-        driver.findElement(payBtn).click();
+click(payBtn);
         return this;
     }
 
@@ -57,7 +57,7 @@ public class PaymentPage extends BasePage {
     }
 
     public HomePage clickContinue() {
-        driver.findElement(continueBtn).click();
+        click(continueBtn);
         return new HomePage(driver);
     }
 }

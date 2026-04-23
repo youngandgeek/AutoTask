@@ -2,6 +2,7 @@ package com.automation.tests;
 
 import com.automation.base.BaseTest;
 import com.automation.pages.HomePage;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,9 +12,9 @@ import org.testng.annotations.Test;
 
 @Test(groups = "notLogged")
 public class LoginTests extends BaseTest {
-
+    @Test(priority = 2, description = "Verify user successful login")
+    @Description("Happy Path: User Registration and Login Flow")
     //Valid login test
-@Test
 public void TC_002_UserLogin_HappyPath() {
 
     String email = "autouser_1@testmail.com";
@@ -33,27 +34,4 @@ public void TC_002_UserLogin_HappyPath() {
             "User was NOT redirected to home page after login");
 }
 
-/**
- *  // ❌ NEGATIVE TEST (invalid login)
- *     @Test
- *     public void testInvalidLogin() {
- *
- *         new HomePage(driver)
- *                 .clickSignupLogin()
- *                 .enterLoginEmail("wrong@test.com")
- *                 .enterLoginPassword("wrong123")
- *                 .clickLoginButton();
- *
- *         // ❗ we will verify error message
- *         // (you need to add this locator in LoginPage)
- *         String errorMsg = driver.findElement(
- *                 By.cssSelector("p[style*='color: red']")
- *         ).getText();
- *
- *         Assert.assertEquals(errorMsg,
- *                 "Your email or password is incorrect!",
- *                 "Error message not displayed correctly");
- *     }
- *
- */
 }

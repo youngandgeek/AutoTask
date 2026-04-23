@@ -17,6 +17,7 @@ public class LoginSignupPage extends BasePage {
     //signup form
     private final By signupNameInput = By.cssSelector("[data-qa='signup-name']");
     private final By signupEmailInput = By.cssSelector("[data-qa='signup-email']");
+    private final By errorMessage = By.xpath("//p[normalize-space()='Your email or password is incorrect!']");
 
 
 
@@ -42,6 +43,16 @@ public class LoginSignupPage extends BasePage {
         return new HomePage(driver);
     }
 
+// VERIFICATIONS
+
+    public String getErrorMessage() {
+        return driver.findElement(errorMessage).getText();
+    }
+
+    public boolean isErrorDisplayed() {
+        return driver.findElement(errorMessage).isDisplayed();
+    }
+
 
     public LoginSignupPage enterSignupName(String name) {
         type(signupNameInput, name);
@@ -56,6 +67,11 @@ public class LoginSignupPage extends BasePage {
     public RegisterPage clickSignUpBtn() {
         click(signUpBtn);
         return new RegisterPage(driver);
+    }
+    //negative tests
+    public LoginSignupPage clickSignupBtnExpectingFailure() {
+        click(signUpBtn);
+        return this;
     }
 
 }

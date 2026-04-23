@@ -4,14 +4,15 @@ import com.automation.base.BaseTest;
 import com.automation.pages.AccountCreatedPage;
 import com.automation.pages.HomePage;
 import com.automation.pages.RegisterPage;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = "notLogged")
 
 public class RegisterTest extends BaseTest {
-
-    @Test
+    @Test(priority = 1, description = "Verify user registration and login")
+    @Description("Happy Path: User Registration and Login Flow")
     public void TC_001_UserRegistration_HappyPath() {
 
         String signupName = "Test@12345";
