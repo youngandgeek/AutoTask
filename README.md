@@ -15,70 +15,52 @@ It is designed to test an e-commerce web application covering:
 </ul>
 
 
-🏗️ Framework Structure
-<ul>
-  <li>src
-    <ul>
-      <li>main
-        <ul>
-          <li>java
-           
 
-            <ul>
-              <li>base
-                <ul>
-                  <li>BasePage.java</li>
-                  <li>BaseTest.java</li>
-                </ul>
-              </li>
-</ul>
-            <ul>
-             <li>utils
-               <ul>
-       <li>DriverManager.java</li>
-</ul>
-             </li>
-          
-          </li>
-              <li>pages
-                <ul>
-                  <li>HomePage.java</li>
-                  <li>LoginSignupPage.java</li>
-                  <li>RegisterPage.java</li>
-                  <li>AccountCreatedPage.java</li>
-                  <li>ProductsPage.java</li>
-                  <li>CartPage.java</li>
-                  <li>PaymentPage.java</li>
-                <li>CheckoutPage.java</li>
-                </ul>
 
-              </li> 
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>test
-        <ul>
-          <li>java
-            <ul>
-              <li>tests
-                <ul>
-                  <li>LoginTest.java</li>
-                  <li>RegisterTest.java</li>
-                  <li>PurchaseTest.java</li>
-                  <li>InvalidLogin</li>
-                </ul>
-              </li>
-              <li>testng.xml
-                
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+
+## 🏗️ Framework Structure
+
+
+
+```text
+
+
+
+src
+├── main
+│   └── java
+│       ├── base
+│       │   ├── BasePage.java
+│       │   ├── BaseTest.java
+│       │
+│       │
+│       ├── utils
+│       │   └── DriverManager.java
+│       │
+│       └── pages
+│           ├── HomePage.java
+│           ├── LoginSignupPage.java
+│           ├── RegisterPage.java
+│           ├── AccountCreatedPage.java
+│           ├── ProductsPage.java
+│           ├── CartPage.java
+│           ├── PaymentPage.java
+│           └── CheckoutPage.java
+│
+└── test
+    └── java
+        ├── tests
+        │   ├── LoginTest.java
+        │   ├── RegisterTest.java
+        │   ├── PurchaseTest.java
+        │   └── InvalidLogin.java
+        └── testng.xml
+
+
+```
+
+
+
 
 ⚙️ Setup Instructions
 1. Prerequisites
