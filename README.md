@@ -1,42 +1,69 @@
-📌 Project Overview
 This project is a Selenium Web Automation Framework built using:
 
-Java
-Selenium WebDriver
-TestNG
-Page Object Model (POM)
-Maven (if applicable)
+<ul> <li>Java</li> <li>Selenium WebDriver</li> <li>TestNG</li> <li>Page Object Model (POM)</li> <li>Maven</li> </ul>
+
 It is designed to test an e-commerce web application covering:
 
-User registration
-Login/logout
-Product search
-Add to cart
-Checkout and payment flow
+<ul>
+  <li>User Registration</li>
+  <li>Login </li>
+  <li>Logout</li> 
+  <li>Select Products and Add to Cart</li>
+  <li>Delete Product from cart</li>
+  <li>Checkout </li>
+  <li>Payment Flow</li> 
+</ul>
+
+
 🏗️ Framework Structure
-src
+<ul>
+  <li>src
+    <ul>
+      <li>main
+        <ul>
+          <li>java
+            <ul>
+              <li>base
+                <ul>
+                  <li>BasePage.java</li>
+                  <li>BaseTest.java</li>
+                  <li>DriverManager.java</li>
+                </ul>
+              </li>
+              <li>pages
+                <ul>
+                  <li>HomePage.java</li>
+                  <li>LoginSignupPage.java</li>
+                  <li>ProductsPage.java</li>
+                  <li>CartPage.java</li>
+                  <li>PaymentPage.java</li>
+                  <li>RegisterPage.java</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>test
+        <ul>
+          <li>java
+            <ul>
+              <li>tests
+                <ul>
+                  <li>LoginTest.java</li>
+                  <li>RegisterTest.java</li>
+                  <li>PurchaseTest.java</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-├── main
-│ ├── java
-│ │ ├── base
-│ │ │ ├── BasePage
-│ │ │ ├── BaseTest
-│ │ │ └── DriverManager
-│ │
-│ │ ├── pages
-│ │ │ ├── HomePage
-│ │ │ ├── LoginSignupPage
-│ │ │ ├── ProductsPage
-│ │ │ ├── CartPage
-│ │ │ ├── PaymentPage
-│ │ │ └── RegisterPage
 
-├── test
-│ ├── java
-│ │ ├── tests
-│ │ │ ├── LoginTest
-│ │ │ ├── RegisterTest
-│ │ │ └── PurchaseTest
 
 ⚙️ Setup Instructions
 1. Prerequisites
